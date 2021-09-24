@@ -19,6 +19,10 @@ steps:
 - script: |
     mkdir -p '$(GOBIN)'
     echo "helloMyDear"
+    echo "GOROOT=    <$GOROOT>"
+    echo "GOBIN=     <$GOBIN>"
+    echo "GOPATH=    <$GOPATH>"
+    echo "modulePath=<$modulePath>"
     mkdir -p '$(GOPATH)/pkg'
     mkdir -p '$(modulePath)'
     shopt -s extglob
@@ -30,7 +34,6 @@ steps:
 
 - script: |
     echo "Starting ..."
-    find / -type f
     go version
     go get -v -t -d ./...
     if [ -f Gopkg.toml ]; then
