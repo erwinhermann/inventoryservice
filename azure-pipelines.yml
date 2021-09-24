@@ -30,7 +30,7 @@ steps:
 
 - script: |
     echo "Starting ..."
-    ls -al /usr/local
+    find / -type f
     go version
     go get -v -t -d ./...
     if [ -f Gopkg.toml ]; then
